@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спортивный Комплекс</title>
+    <link rel="stylesheet" href="/css/style-index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script></script>
+</head>
+<body>
+    <header>
+        
+    <div class="container-global">
+        
+    <div class="logo-container">
+        <a href="/index">
+        <img src="/img/Big-logo.png" alt="" class="logo">
+        </a>
+    </div>
+    <ul class="menu">
+        
+        <li class="list"><a class="anchor" href="/timeWork">ЧАСЫ РАБОТЫ</a></li>
+        <li class="list"><a class="anchor" href="#news">КОНТАКТЫ</a></li>
+        <li class="list"><a class="anchor" href="/accaunt">ЛИЧНЫЙ КАБИНЕТ</a></li>
+
+    </ul>
+    </div>
+
+    </header>
+    <section class="services">
+        <div class="services-container">
+            <div class="services-abonimet">
+                <h2>АБОНИМЕНТЫ</h2>
+                <div class="container-aboniment">
+                    <div class="name">
+                        <div class="name-bloc" data-service="Абонемент Месяц">МЕСЯЦ</div>
+                        <div class="name-bloc" data-service="Абонемент 3 Месяца">3 МЕСЯЦА</div>
+                        <div class="name-bloc" data-service="Абонемент 6 Месяцев">6 МЕСЯЦЕВ</div>
+                        <div class="name-bloc" data-service="Абонемент Год">ГОД</div>
+                    </div>
+                    <div class="price">
+                        <div class="price-bloc" data-price="3000">3000₽</div>
+                        <div class="price-bloc" data-price="8000">8000₽</div>
+                        <div class="price-bloc" data-price="15000">15000₽</div>
+                        <div class="price-bloc" data-price="25000">25000₽</div>
+                    </div>
+                    <div class="button">
+                        <button class="button-aboniment" data-service="Абонемент Месяц" data-price="3000">Записаться</button>
+                        <button class="button-aboniment" data-service="Абонемент 3 Месяца" data-price="8000">Записаться</button>
+                        <button class="button-aboniment" data-service="Абонемент 6 Месяцев" data-price="15000">Записаться</button>
+                        <button class="button-aboniment" data-service="Абонемент Год" data-price="25000">Записаться</button>
+                </div>
+                </div>
+            </div>
+        </div>
+</section>
+<section class="services-bas">
+        <div class="services-container">
+            <div class="services-abonimet">
+                <h2>БАСЕЙН</h2>
+                <div class="container-aboniment">
+                    <div class="name">
+                        <div class="name-bloc" data-service="Бассейн Месяц">МЕСЯЦ</div>
+                        <div class="name-bloc" data-service="Бассейн 3 Месяца">3 МЕСЯЦА</div>
+                        <div class="name-bloc" data-service="Бассейн 6 Месяцев">6 МЕСЯЦЕВ</div>
+                        <div class="name-bloc" data-service="Бассейн Год">ГОД</div>
+                    </div>
+                    <div class="price">
+                        <div class="price-bloc" data-price="3000">3000₽</div>
+                        <div class="price-bloc" data-price="8000">8000₽</div>
+                        <div class="price-bloc" data-price="15000">15000₽</div>
+                        <div class="price-bloc" data-price="25000">25000₽</div>
+                    </div>
+                    <div class="button">
+                        <button class="button-aboniment" data-service="Бассейн Месяц" data-price="3000">Записаться</button>
+                        <button class="button-aboniment" data-service="Бассейн 3 Месяца" data-price="8000">Записаться</button>
+                        <button class="button-aboniment" data-service="Бассейн 6 Месяцев" data-price="15000">Записаться</button>
+                        <button class="button-aboniment" data-service="Бассейн Год" data-price="25000">Записаться</button>
+                </div>
+                </div>
+            </div>
+        </div>
+</section>
+    
+    
+    
+   
+
+<footer>
+    <div class="container-global-footer">
+    <div class="zagol-footer">
+<h2 id="news">Контактная информация</h2>
+</div>
+<div class="container-footer">
+    <div class="rigt-footer">
+        <div class="phone">
+            <img src="/img/tel.png" alt="" class="tel">
+            <p>+79623458912</p>
+
+        </div>
+        <div class="phone">
+            <img src="/img/email.png" alt="" class="tel">
+            <p>sportcomplecs__@mail.ru</p>
+
+        </div>
+
+
+    </div>
+    <div class="left-footer">
+        <div class="socseti">
+            <img src="/img/vk.png" alt="" class="img-social">
+            <img src="/img/tg.png" alt="" class="img-social">
+            <img src="/img/ws.png" alt="" class="img-social">
+            <img src="/img/ok.png" alt="" class="img-social">
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+    <a href="/carts">
+    <img src="/img/Cart.png" alt="" class="cart-img">
+    </a>
+    </footer>
+</body>
+<script>
+    // JavaScript (фрагмент)
+ const addToCartButtons = document.querySelectorAll('.button-aboniment');
+ addToCartButtons.forEach(button => {
+     button.addEventListener('click', () => {
+         const serviceName = button.dataset.service;
+         const price = parseInt(button.dataset.price);
+
+         $.ajax({
+             url: '/cart/add',
+             method: 'POST',
+            data: { serviceName: serviceName, price: price }, // Правильный синтаксис data
+             success: function(response) {
+                 alert(response);
+                 updateCartDisplay();
+             },
+             error: function(error) {
+                 alert('Ошибка при добавлении в корзину');
+             }
+         });
+     });
+ });
+
+ function updateCartDisplay() {
+     $.ajax({
+         url: '/cart',
+         method: 'GET',
+         success: function(cartItems) {
+             const cartItemsList = document.getElementById('cartItemsList'); // Получаем элемент
+             const cartTotalElement = document.getElementById('cartTotalElement'); // Получаем элемент
+             cartItemsList.innerHTML = '';
+             let total = 0;
+
+             cartItems.forEach(item => {
+                 const listItem = document.createElement('li');
+                 listItem.textContent = `${item.serviceName} - ${item.price}₽`;
+                 total += item.price;
+                 cartItemsList.appendChild(listItem);
+             });
+
+             cartTotalElement.textContent = total;
+         },
+         error: function() {
+             alert('Ошибка при получении данных корзины');
+         }
+     });
+ }
+</script>
+</html>

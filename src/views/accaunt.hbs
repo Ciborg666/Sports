@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спортивный Комплекс</title>
+  <link rel="stylesheet" href="/css/style-index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!-- Подключаем jQuery -->
+</head>
+<body>
+  <header>
+    <div class="container-global">
+      <div class="logo-container">
+        <a href="/index">
+          <img src="/img/Big-logo.png" alt="" class="logo">
+        </a>
+      </div>
+      <ul class="menu">
+        <li class="list"><a class="anchor" href="/services">УСЛУГИ</a></li>
+        <li class="list"><a class="anchor" href="/timeWork">ЧАСЫ РАБОТЫ</a></li>
+        <li class="list"><a class="anchor" href="#news">КОНТАКТЫ</a></li>
+        
+      </ul>
+    </div>
+  </header>
+
+  <section class="services">
+    <div class="container-accaunt">
+      <div class="bloc-cotainer-accaunt">
+        <div class="my-aboniment">
+          <h2>Мои абонименты</h2>
+          <table id="myTrainingsList">
+            <thead>
+              <tr>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Здесь будут отображаться мои тренировка -->
+            </tbody>
+          </table>
+        </div>
+        <div class="accaunt-information">
+          <h2>Данные пользователя</h2>
+          <div class="username-bloc">
+            <img src="/img/name.png" alt="" class="img">
+            <p>{{User.username}}</p>
+          </div>
+          <div class="username-bloc">
+            <img src="/img/email.png" alt="" class="img">
+            <p>{{User.email}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container-global-footer">
+    <div class="zagol-footer">
+<h2 id="news">Контактная информация</h2>
+</div>
+<div class="container-footer">
+    <div class="rigt-footer">
+        <div class="phone">
+            <img src="/img/tel.png" alt="" class="tel">
+            <p>+79623458912</p>
+
+        </div>
+        <div class="phone">
+            <img src="/img/email.png" alt="" class="tel">
+            <p>sportcomplecs__@mail.ru</p>
+        </div>
+
+
+    </div>
+    <div class="left-footer">
+        <div class="socseti">
+            <img src="/img/vk.png" alt="" class="img-social">
+            <img src="/img/tg.png" alt="" class="img-social">
+            <img src="/img/ws.png" alt="" class="img-social">
+            <img src="/img/ok.png" alt="" class="img-social">
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+    <a href="/carts">
+    <img src="/img/Cart.png" alt="" class="cart-img">
+    </a>
+    </footer>
+
+
+  <script>
+    $(document).ready(function() {
+      function loadMyTrainings() {
+        $.ajax({
+          url: '/myTrainings',
+          method: 'GET',
+         success: function(myTrainings) {
+    const myTrainingsList = $('#myTrainingsList tbody');
+    myTrainingsList.empty();
+
+    myTrainings.forEach(training => {
+        // Проходим по каждому элементу trainingItems
+        training.trainingItems.forEach(item => {
+            const row = $('<tr>');
+            const serviceNameCell = $('<td>').text(item.serviceName);
+            row.append(serviceNameCell);
+            const trainingDateCell = $('<td>').text(new Date(training.trainingDate).toLocaleDateString());
+            row.append(trainingDateCell);
+            myTrainingsList.append(row);
+        });
+    });
+},
+          error: function() {
+            alert('Ошибка при загрузке списка тренировок');
+          }
+        });
+      }
+
+      loadMyTrainings();
+    });
+  </script>
+</body>
+</html>

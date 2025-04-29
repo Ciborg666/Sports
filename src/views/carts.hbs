@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="/css/style-index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/scripts/cartsScripts.js"></script>
+</head>
+<body>
+    <header>
+        
+    <div class="container-global">
+        
+    <div class="logo-container">
+      <a href="/index">
+        <img src="/img/Big-logo.png" alt="" class="logo">
+        </a>
+    </div>
+    <ul class="menu">
+        <li class="list"><a class="anchor" href="/services">УСЛУГИ</a></li>
+        <li class="list"><a class="anchor" href="/timeWork">ЧАСЫ РАБОТЫ</a></li>
+        <li class="list"><a class="anchor" href="#news">КОНТАКТЫ</a></li>
+        <li class="list"><a class="anchor" href="/accaunt">ЛИЧНЫЙ КАБИНЕТ</a></li>
+        
+
+    </ul>
+    </div>
+
+    </header>
+    <section class="services">
+        <div class="container-accaunt">
+            <div class="bloc-cotainer-cart">
+                <h2 class="cart-h2">Корзина</h2>
+                
+                <table id="cartItemsList">
+                    <thead>
+                        
+                    </thead>
+                 <tbody>
+    <!-- Здесь будут отображаться товары корзины -->
+  </tbody>
+</table>
+                <p>Итого: <span id="cartTotalElement">0</span>₽</p>
+                <div class="bloc-cart-button">
+                <button id="clearCartButton" class="clear-cart-button">Очистить корзину</button>
+                <button id="addToTrainingButton" class="clear-cart-button">Оплатить</button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <footer>
+    <div class="container-global-footer">
+    <div class="zagol-footer">
+<h2 id="news">Контактная информация</h2>
+</div>
+<div class="container-footer">
+    <div class="rigt-footer">
+        <div class="phone">
+            <img src="/img/tel.png" alt="" class="tel">
+            <p>+79623458912</p>
+
+        </div>
+        <div class="phone">
+            <img src="/img/email.png" alt="" class="tel">
+            <p>sportcomplecs__@mail.ru</p>
+
+        </div>
+
+
+    </div>
+    <div class="left-footer">
+        <div class="socseti">
+            <img src="/img/vk.png" alt="" class="img-social">
+            <img src="/img/tg.png" alt="" class="img-social">
+            <img src="/img/ws.png" alt="" class="img-social">
+            <img src="/img/ok.png" alt="" class="img-social">
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+    </footer>
+
+
+</body>
+</html>
