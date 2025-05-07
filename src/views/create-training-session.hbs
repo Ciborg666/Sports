@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать занятие</title>
+    <link rel="stylesheet" href="/css/styles-manager.css">
+</head>
+<body>
+    <header>
+        
+    <div class="container-global">
+        
+    <div class="logo-container">
+        <img src="/img/Big-logo.png" alt="" class="logo">
+    </div>
+   
+    </div>
+
+    </header>
+  <h1>Создать новое занятие</h1>
+  <form id="trainingForm" action="/api/training-sessions" method="POST" >
+    <div>
+      <label for="name">Название:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="description">Описание:</label>
+      <textarea id="description" name="description"></textarea>
+    </div>
+    <div>
+      <label for="date">Дата:</label>
+      <input type="date" id="date" name="date" required>
+    </div>
+    <div>
+      <label for="time">Время:</label>
+      <input type="time" id="time" name="time" required>
+    </div>
+
+    <button type="submit">Создать</button>
+    <a href="/avtorization" class="smens-akk">Сменить акаунт!</a>
+  </form>
+
+  <footer>
+    <div class="container-global-footer">
+    <div class="zagol-footer">
+<h2>Контактная информация</h2>
+</div>
+<div class="container-footer-avtoriz">
+    <div class="rigt-footer">
+        <div class="phone">
+            <img src="/img/tel.png" alt="" class="tel">
+            <p>+79623458912</p>
+
+        </div>
+        <div class="phone">
+            <img src="/img/email.png" alt="" class="tel">
+            <p>sportcomplecs__@mail.ru</p>
+
+        </div>
+
+    </div>
+    <div class="left-footer">
+        <div class="socseti">
+            <img src="/img/vk.png" alt="" class="img-social">
+            <img src="/img/tg.png" alt="" class="img-social">
+            <img src="/img/ws.png" alt="" class="img-social">
+            <img src="/img/ok.png" alt="" class="img-social">
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#trainingForm').submit(function(event) {
+        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+        $.ajax({
+          url: '/api/training-sessions',
+          method: 'POST',
+          data: $(this).serialize(), // Сериализуем данные формы
+          success: function(response) {
+            // В случае успеха:
+            $('#message').text(response.message).removeClass('error').addClass('success').show(); // Отображаем сообщение
+            setTimeout(function() {
+              location.reload(); // Обновляем страницу через 2 секунды
+            }, 2000);
+          },
+          error: function(xhr, status, error) {
+            // В случае ошибки:
+            $('#message').text("Ошибка при создании занятия").removeClass('success').addClass('error').show();
+          }
+        });
+      });
+    });
+  </script>
+</html>

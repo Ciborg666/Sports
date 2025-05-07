@@ -6,7 +6,8 @@
     <title>Спортивный Комплекс</title>
     <link rel="stylesheet" href="/css/style-index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script></script>
+    <script src="/scripts/training.js"></script>
+    
 </head>
 <body>
     <header>
@@ -83,6 +84,36 @@
         </div>
 </section>
     
+<section class="services-bas">
+  <div class="services-container">
+    <div class="services-abonimet">
+      <h2>Персональные занятия</h2>
+      <div class="container-aboniment">
+        <div id="trainingSessionsList">
+          <!-- Здесь будут отображаться занятия -->
+          <!-- Пример (если вы получаете данные из контроллера): -->
+          {{#each trainingSessions}}
+          <div class="session-container">
+            <div class="name">
+              <div class="name-bloc" data-service="{{name}}">{{name}}</div>
+            </div>
+            <div class="description">
+              <div class="description-bloc">{{description}}</div> <!-- Описание -->
+               <div class="session-date">Дата: {{date}} Время: {{time}}</div> <!--Дата и время-->
+            </div>
+            <div class="price">
+              <div class="price-bloc" data-price="500">500₽</div>  <!--Фиксированная цена (или добавьте поле в модель)-->
+            </div>
+            <div class="button">
+              <button class="button-aboniment" data-service="{{name}}" data-session-id="{{id}}" data-price="500">Записаться</button>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     
     
    

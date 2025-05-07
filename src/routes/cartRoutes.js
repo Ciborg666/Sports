@@ -11,14 +11,7 @@ router.get('/myTrainings', cartController.getMyTrainings);
 router.post('/cart/addToTraining', cartController.addToTraining);
 
 
-router.get('/', (req, res) => {
-    // Проверяем, есть ли корзина в сессии
-    if (req.session.cart) {
-      res.json(req.session.cart); // Отправляем данные корзины в формате JSON
-    } else {
-      res.json([]); // Отправляем пустой массив, если корзина пуста
-    }
-  });
+
 
 
 router.post('/remove', (req, res) => {

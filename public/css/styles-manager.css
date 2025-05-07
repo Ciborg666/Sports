@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    
+    flex-direction: column;
+    
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Adjust width as needed */
+  }
+
+  div {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  textarea {
+    resize: vertical; /* Allow vertical resizing */
+    height: 100px;
+  }
+
+  button[type="submit"] {
+    background-color: #3b4bdf;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Full width button */
+    margin-bottom: 20px;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #3027a5;
+  }
+
+
+  header {
+    background-color: #4654ae;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 50px;
+    align-items: center;
+}
+.container-global {
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    list-style-type: none;
+}
+.anchor{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    
+}
+
+
+
+footer{
+    background-color: #c8cacd;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    margin-top: 50px;
+    
+}
+
+.zagol-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    
+}
+
+/* Стили для подвала */
+.container-global-footer{
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+
+.container-footer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-top: 24px;
+
+}
+.phone{
+    display: flex;
+    gap: 20px;
+
+}
+.tel{
+    width: 50px;
+    height: 50px;
+}
+.socseti{
+    display: flex;
+    gap: 20px;
+}
+.img-social{
+    width: 50px;
+    height: 50px;
+}
+.login-form{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+.link-login{
+    text-decoration: none;
+}
+.rigt-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.container-footer-avtoriz{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    margin-top: 48px;
+
+}
+
+
+.smens-akk{
+  text-decoration: none;
+}

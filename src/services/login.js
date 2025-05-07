@@ -7,7 +7,7 @@ const loginUser = async (login, password) => {
     }
 
     try {
-        const user = await User.findOne({ where: { username: login } }); 
+        const user = await User.findOne({ where: { username: login } });
 
         if (!user) {
             throw new Error('Пользователь с таким логином не найден.');
@@ -22,15 +22,21 @@ const loginUser = async (login, password) => {
         console.log('handleLogin вызван');
         console.log('Username:', login);
         console.log('Password:', password);
-        console.log('Executing (default): SELECT `id`, `username`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`username` = ' + login + ';'); // Обновите SQL-запрос
+        console.log('Executing (default): SELECT `id`, `username`, `password`, `createdAt`, `updatedAt`, `role` FROM `Users` AS `User` WHERE `User`.`username` = ' + login + ';'); // Обновите SQL-запрос, добавив role
         console.log('Найденный пользователь:', user);
 
-        return user;
+        // Создаем и возвращаем новый объект, включающий роль пользователя
+        return {
+            id: user.id,
+            username: user.username,
+            name: user.name,  // Добавьте, если поле name есть в вашей модели
+            email: user.email, // Добавьте, если поле email есть в вашей модели
+            role: user.role  // Возвращаем роль пользователя
+        };
     } catch (error) {
         console.error('Ошибка при входе:', error);
         throw error;
     }
 };
-
 
 export { loginUser };

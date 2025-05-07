@@ -36,32 +36,21 @@
         
     </section>
     <section class="news">
-        <div class="container-news">
-            <h2 class="h2-news" >Новости</h2>
-            <div class="container-bloc-news">
-            <div class="container-bloc">
-                <div class="bloc-element">
-                    <img src="/img/news1.jpg" alt="" class="news1">
-                    
-                    <p>Сегодня состоялся захватывающий баскетбольный матч! Поздравляем победителей и благодарим всех за участие и присутствие!</p>
-                
-                </div>
-                <div class="bloc-element"></div>
-                <div class="bloc-element"></div>
-
-            </div>
-            <div class="container-bloc">
-                <div class="bloc-element"></div>
-                <div class="bloc-element"></div>
-                <div class="bloc-element"></div>
-
-            </div>
-        </div>
-            
-
-        </div>
-
-    </section>
+  <div class="container-news">
+    <h2 class="h2-news">Новости</h2>
+    <div class="container-bloc-news">
+      {{#each news}}
+      <div class="bloc-element">
+        <img src="{{image}}" alt="" class="news-image">
+        
+        <p class="news-description">{{description}}</p>
+      </div>
+      {{else}}
+      <p>Список новостей пока пуст.</p>
+      {{/each}}
+    </div>
+  </div>
+</section>
 
     <footer>
     <div class="container-global-footer">

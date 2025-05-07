@@ -1,4 +1,3 @@
-// index.js (или другой файл роутов)
 import express from 'express';
 import { getNews } from '../controllers/newsController.js'; // <--- Добавлено
 

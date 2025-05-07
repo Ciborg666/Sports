@@ -18,6 +18,13 @@ import authRoutes from './src/routes/avtorizRoutes.js';
 import indexRoutes from './src/routes/indexRoutes.js';
 import timeRoutes from './src/routes/timeRoutes.js';
 import servicesRoutes from './src/routes/servicesRoutes.js';
+import managerRoutes from './src/routes/manager.js';
+import trainingSessionRoutes from './src/routes/trainingSessionRoutes.js';
+import enrollmentRoutes from './src/routes/enrollmentRoutes.js';
+import { syncDatabaseSchema } from './src/utils/databaseSynch.js';
+import seedDatabaseNews from './src/seeders/newsSeed.js';
+//import newsRoutes from './src/routes/newsRoutes.js'
+
 
 associate(); // Вызываем associate после определения моделей
 
@@ -56,6 +63,8 @@ app.use('/', registrationRouter);
 
 app.use('/', authRoutes);
 
+app.use('/', managerRoutes);
+
 app.use('/', indexRoutes);
 
 app.use('/', loginRoutes);
@@ -68,9 +77,17 @@ app.use('/', accauntRoutes);
 
 app.use('/', cartRoutes);
 
+//app.use('/news', newsRoutes);
+
 app.get('/carts', (req, res) => {
     res.render('carts');
 });
+
+app.use('/api', trainingSessionRoutes);
+
+app.use('/api', enrollmentRoutes);
+
+// Заполняем базу данных Burgers
 
 
 const PORT = process.env.PORT || 3000;
@@ -79,11 +96,15 @@ const startServer = async () => {
         await sequelizeDB.authenticate();
         console.log('Подключение к SQLite успешно!');
 
+        //await syncDatabaseSchema();
+        //seedDatabaseNews(); 
+
         defineAssociations(sequelizeDB); // ОПРЕДЕЛЯЕМ СВЯЗИ
 
         console.log('app.js: Связи определены');
 
         await sequelizeDB.sync({ force: false });
+        
 
         app.listen(PORT, () => {
             console.log(`Сервер запущен на http://localhost:${PORT}`);
